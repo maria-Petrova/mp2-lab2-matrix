@@ -169,7 +169,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
 	if ((Size != v.Size) || (StartIndex != v.StartIndex))
 		throw std::exception("wrong operation");
-	TVector<ValType> tmp(Size);
+	TVector<ValType> tmp(*this);
 	for (int i = StartIndex; i < Size; i++)
 		tmp.pVector[i] = pVector[i] + v.pVector[i];
 	return tmp;
@@ -180,7 +180,7 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
 	if ((Size != v.Size) || (StartIndex != v.StartIndex))
 		throw std::exception("wrong operation");
-	TVector<ValType> tmp(Size);
+	TVector<ValType> tmp(*this);
 	for (int i = StartIndex; i < Size; i++)
 		tmp.pVector[i] = pVector[i] - v.pVector[i];
 	return tmp;
